@@ -2,13 +2,13 @@ from django.contrib import admin
 from .models import Products, Category, Order, OrderItem, ProductReview
 from django.utils.html import format_html
 
-class OrderAdmin(admin.ModelAdmin):
+class OrderAdmin(admin.ModelAdmin): # admin model for order
     pass
 
-class OrderItemAdmin(admin.ModelAdmin):
+class OrderItemAdmin(admin.ModelAdmin): # admin model for order item
     list_display = ('product', 'quantity', 'order')
 
-    def save_model(self, request, obj, form, change):
+    def save_model(self, request, obj, form, change): # method to save the model
         product = obj.product
         if product.stock_Quantity < obj.quantity:
             # Display a user-friendly error message in the admin interface
@@ -26,15 +26,15 @@ class OrderItemAdmin(admin.ModelAdmin):
             super().save_model(request, obj, form, change)
 
 
-class CategoryAdmin(admin.ModelAdmin):
+class CategoryAdmin(admin.ModelAdmin): # admin model for category
     pass
 
-class ProductReviewAdmin(admin.ModelAdmin):
+class ProductReviewAdmin(admin.ModelAdmin):     # admin model for product review
     pass
 
-admin.site.register(Products)
+admin.site.register(Products) # register the models
 admin.site.register(Category, CategoryAdmin)
-admin.site.register(Order, OrderAdmin)
+admin.site.register(Order, OrderAdmin) 
 admin.site.register(OrderItem, OrderItemAdmin)
 admin.site.register(ProductReview, ProductReviewAdmin)
 # Register your models here.

@@ -23,9 +23,9 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-t=u4-hf1#41()ih(o%vvnab+1b@@1eh&0xoyd=)*l@_e4w)8j@'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = False # change this to False when deploying to production
 
-ALLOWED_HOSTS = ['my-be-capstone-4.onrender.com']
+ALLOWED_HOSTS = ['my-be-capstone-4.onrender.com'] # add render as the domain name of your website here
 
 
 # Application definition
@@ -75,7 +75,7 @@ TEMPLATES = [
 ]
 
 WSGI_APPLICATION = 'ecommerce.wsgi.application'
-AUTH_USER_MODEL = 'users.User'
+AUTH_USER_MODEL = 'users.User' # set the custom user model as the default user model
 
 # Database
 # https://docs.djangoproject.com/en/5.1/ref/settings/#databases
@@ -132,7 +132,7 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 REST_FRAMEWORK = {
     'DEFAULT_PAGINATION_CLASS': 'rest_framework.pagination.PageNumberPagination',
-    'PAGE_SIZE': 10, 
+    'PAGE_SIZE': 50, 
 
     'DEFAULT_AUTHENTICATION_CLASSES': (
         'rest_framework_simplejwt.authentication.JWTAuthentication',
@@ -142,9 +142,10 @@ REST_FRAMEWORK = {
         'rest_framework.permissions.IsAuthenticated',
     ],
 
-}
-SECURE_HSTS_SECONDS = 31536000
-SECURE_HSTS_INCLUDE_SUBDOMAINS = True
-SECURE_HSTS_PRELOAD = True
-SECURE_BROWSER_XSS_FILTER = True
-SECURE_CONTENT_TYPE_NOSNIFF = True
+} # set the default pagination class and page size. The authentication and permission classes are also set here
+
+SECURE_HSTS_SECONDS = 31536000  # enable HSTS for 1 year
+SECURE_HSTS_INCLUDE_SUBDOMAINS = True # enable HSTS for all subdomains
+SECURE_HSTS_PRELOAD = True # enable HSTS preload
+SECURE_BROWSER_XSS_FILTER = True # enable XSS protection
+SECURE_CONTENT_TYPE_NOSNIFF = True # enable content type nosniff

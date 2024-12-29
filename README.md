@@ -21,17 +21,27 @@ Contains models that handle
 1. Products addition, updating, and deleting
     1. Adding products
     User uses the POSt method to add products to the API.
-    The user must be authenticated to perform this action
+    The user must be authenticated to perform this action.
+    When succesfully created it should return status 201 created
     2. Updating products
     User can use the PUT method to update product details
     User must be authenticated to perform this
+    When succesfully created it should return status 201 created
     3. Deleting products
     User can use the DELETE method to destroy a product
     Only authenticated users can perform this
 2. Order creation, updating and deleting
     Only authenticated users can create, update or delete orders
+    When succesfully created it should return status 201 created
 3. Category addition and deletion
     Only authenticated users can add or delete categories 
+    When succesfully created it should return status 201 created
+4. Order item CRUD operations
+    Only authenticated users can perform this operation
+    When succesfully created it should return status 201 created
+5. Product Reviews
+    Only authenticated users can perform this operations
+    When succesfully created it should return status 201 created
 
 It also contains the views that define the viewsets for the models
 For viewsets, i used model viewsets for products as it can handle all the GET, UPDATE, and DELETE methods instead of hanling these methods singularly.
